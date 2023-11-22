@@ -1,34 +1,38 @@
-public class ListPatients
-    private List&lt;Patient&gt; listP;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+public class ListPatients implements  InterfacePatient{
+    private List<Patient> listP;
     public ListPatients(){
-        /*à completer*/
+        listP = new ArrayList<>();
     }
+
+
     public void ajouterPatient(Patient p) {
-        /*à completer*/
+        listP.add(p);
     }
+
     public void supprimerPatient(Patient p) {
-
-
-
-        /*à completer*/ (6) (0.5 point)
+        listP.remove(p);
     }
-    /* Avec l’api Stream */
+
     public boolean rechercherPatient(Patient p){
-        /*à completer*/ (7) (0.5 point)
+        return listP.contains(p);
     }
-    /* Avec l’api Stream */
+
+
     public boolean rechercherPatient(int cin) {
-        /*à completer*/ (8) } (1 point)
-    /* Avec l’api Stream */
+        return listP.stream().anyMatch(p -> p.getCin() == cin);
+    }
+
     public void afficherPatients() {
-        /*à completer*/ (9) (1 point)
+        listP.forEach(System.out::println);
     }
     /* Avec l’api Stream */
     public void trierPatientsParNom() {
-        /*à completer */ (10) (1 point)
+        listP.sort(Comparator.comparing(Patient::getNom));
     }
-    /* Avec l&#39;api stream */
     public void PatientSansRedondance(){
-        /*à completer : Afficher la liste des patients sans redondance*/
     }
 }
